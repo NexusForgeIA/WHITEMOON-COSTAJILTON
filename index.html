@@ -403,27 +403,41 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
       <div class="section-tag">02 — Nuestros menús</div>
       <h2 class="section-title">Sabores para<br>cada <span class="rose">ocasión</span></h2>
     </div>
-    <p class="section-subtitle">Todos los menús se confeccionan a medida según tu evento, tus invitados y tu presupuesto.</p>
+    <p class="section-subtitle">Conscientes de tan entrañables motivos de reunión, cuidamos con esmero todo detalle, con el buen servicio y atención ofrecida por Costa Jilton.</p>
   </div>
   <div class="tarifas-grid">
     <div class="tarifa-card featured">
-      <div class="tarifa-badge">Celebraciones</div>
+      <div class="tarifa-badge">Bodas</div>
+      <h3>Menú bodas</h3>
+      <div class="tarifa-precio">95€</div>
+      <div class="tarifa-periodo">por persona</div>
+      <p class="tarifa-desc">Incluye 3 horas de música y barra libre. Propuesta gastronómica completa para el día más especial, diseñada contigo.</p>
+    </div>
+    <div class="tarifa-card">
+      <h3>Menú cóctel</h3>
+      <div class="tarifa-precio rose">45€</div>
+      <div class="tarifa-periodo">por persona</div>
+      <p class="tarifa-desc">8 canapés, vasitos o pinchos. Para terminar: paella ciega y arroz negro. Bebidas incluidas (vinos, cervezas, refrescos), café y postre (tartas variadas).</p>
+    </div>
+    <div class="tarifa-card">
+      <h3>Menú buffet</h3>
+      <div class="tarifa-precio">50€</div>
+      <div class="tarifa-periodo">por persona</div>
+      <p class="tarifa-desc">Variedad y calidad para grupos numerosos, ideal para eventos de empresa y reuniones de grupo.</p>
+    </div>
+  </div>
+  <div class="tarifas-grid" style="margin-top:18px;grid-template-columns:repeat(2,1fr)">
+    <div class="tarifa-card">
       <h3>Menú eventos</h3>
-      <div class="tarifa-precio">A medida</div>
+      <div class="tarifa-precio rose">A medida</div>
       <div class="tarifa-periodo">Comuniones y bautizos</div>
       <p class="tarifa-desc">Menú completo pensado para toda la familia, con opción de menú infantil incluida.</p>
     </div>
     <div class="tarifa-card">
-      <h3>Menú bodas</h3>
-      <div class="tarifa-precio rose">A medida</div>
-      <div class="tarifa-periodo">Propuesta completa</div>
-      <p class="tarifa-desc">Diseñado contigo para el día más especial, con presupuesto cerrado antes del evento.</p>
-    </div>
-    <div class="tarifa-card">
-      <h3>Menú cóctel / buffet</h3>
+      <h3>Menú infantil</h3>
       <div class="tarifa-precio">A medida</div>
-      <div class="tarifa-periodo">Grupos numerosos</div>
-      <p class="tarifa-desc">Ideal para eventos de empresa y reuniones de grupo, con formato dinámico de servicio.</p>
+      <div class="tarifa-periodo">El lugar ideal para un día único</div>
+      <p class="tarifa-desc">Pensado para que los más pequeños también disfruten de la celebración.</p>
     </div>
   </div>
 </section>
@@ -514,6 +528,13 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 52px 36px
     <div class="section-tag" style="text-align:center">05 — Preguntas frecuentes</div>
     <h2 class="section-title" style="text-align:center;margin:10px 0 0">Tus <span class="lav">dudas</span> resueltas</h2>
     <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">¿Cuánto cuesta el menú de boda o cóctel?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>El menú de bodas es de 95€ por persona e incluye 3 horas de música y barra libre. El menú cóctel es de 45€ por persona (8 canapés o pinchos, paella ciega, arroz negro, bebidas, café y postre), y el buffet es de 50€ por persona.</p></div>
+      </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span class="faq-q-text">¿Con cuánta antelación debo reservar mi evento?</span>
@@ -945,7 +966,7 @@ function cbInfo(tipo){
   showTab('texto');
   var msgs={
     'eventos':'Organizamos:\n\n- Comuniones y bautizos\n- Bodas\n- Banquetes familiares\n- Eventos de empresa (cóctel o buffet)\n\nTodos con menú a medida y vistas a la Sierra de Guadarrama.',
-    'menus':'Nuestros menús:\n\nMenú eventos — comuniones y bautizos\nMenú bodas — propuesta completa\nMenú cóctel / buffet — grupos numerosos\n\nTodos se confeccionan a medida.',
+    'menus':'Nuestros menús:\n\nMenú bodas — 95€/persona (incluye 3h música + barra libre)\nMenú cóctel — 45€/persona (8 canapés/pinchos + paella ciega + arroz negro + bebidas + café y postre)\nMenú buffet — 50€/persona\nMenú eventos (comuniones) — a medida\nMenú infantil — a medida\n\n¿Quieres que reservemos tu fecha?',
     'donde':'Estamos en la Comunidad de Madrid, a pocos minutos de la capital, con vistas a la Sierra de Guadarrama.\n\nTeléfono: 643 199 580\nEmail: comercial@whitemoon.es'
   };
   setTimeout(function(){botSay(msgs[tipo]);},200);
@@ -978,7 +999,7 @@ function sendMsg(){
   if(/hola|buenas|buenos|hey/.test(t)){
     setTimeout(function(){botSay('¡Hola! Puedo ayudarte a reservar mesa o evento, o resolver dudas sobre menús y ubicación.');},400);
   } else if(/precio|cuanto|coste|tarifa|presupuesto/.test(t)){
-    setTimeout(function(){botSay('Los precios se ajustan según el tipo de evento, el menú y el número de comensales. Si me dices tu evento, te ayudo a iniciar la reserva y nuestro equipo te da un presupuesto a medida.');},400);
+    setTimeout(function(){botSay('Precios orientativos:\n\nMenú bodas: 95€/persona (3h música + barra libre)\nMenú cóctel: 45€/persona\nMenú buffet: 50€/persona\nMenú eventos e infantil: a medida\n\n¿Reservamos tu fecha?');},400);
   } else if(/donde|direccion|ubicacion|llegar|sierra/.test(t)){
     setTimeout(function(){botSay('Estamos en la Comunidad de Madrid, a pocos minutos de la capital, con vistas a la Sierra de Guadarrama. Llama al 643 199 580 para indicaciones.');},400);
   } else if(/boda/.test(t)){
